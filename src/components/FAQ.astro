@@ -1,0 +1,53 @@
+---
+import { faq } from '../data/faq';
+---
+<section id="faq" class="py-20 bg-light">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">FAQ</h2>
+    <div class="max-w-3xl mx-auto space-y-4">
+      {faq.map((item, index) => (
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <button 
+            class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center"
+            data-accordion-target={`accordion-${index}`}
+          >
+            {item.question}
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id={`accordion-${index}`} class="faq-content">
+            <p class="px-6 py-4 text-gray-600">{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-accordion-target]').forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-accordion-target');
+      const content = document.getElementById(targetId);
+      const icon = button.querySelector('svg');
+      
+      // Close all other accordions
+      document.querySelectorAll('.faq-content').forEach(item => {
+        if (item.id !== targetId) {
+          item.style.maxHeight = null;
+          item.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+        }
+      });
+
+      // Toggle current accordion
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        icon.classList.remove('rotate-180');
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,66 @@
+---
+---
+<section class="py-20 bg-dark text-light relative overflow-hidden">
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute inset-0 bg-gradient-to-r from-dark to-transparent"></div>
+    <img src="https://images.unsplash.com/photo-1604868189744-9e165b6e389b?auto=format&fit=crop&q=80" 
+      alt="Background" class="w-full h-full object-cover" />
+  </div>
+  <div class="container mx-auto px-4 relative">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Batch Selanjutnya Akan Dimulai</h2>
+      <p class="text-gray-400 mb-12 font-light">Jangan lewatkan kesempatan untuk bergabung dengan Batch 12 IRQ</p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
+        <div class="bg-dark/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6">
+          <div class="text-4xl md:text-5xl font-bold text-primary mb-2" id="days">00</div>
+          <div class="text-gray-400 font-light">Hari</div>
+        </div>
+        <div class="bg-dark/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6">
+          <div class="text-4xl md:text-5xl font-bold text-primary mb-2" id="hours">00</div>
+          <div class="text-gray-400 font-light">Jam</div>
+        </div>
+        <div class="bg-dark/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6">
+          <div class="text-4xl md:text-5xl font-bold text-primary mb-2" id="minutes">00</div>
+          <div class="text-gray-400 font-light">Menit</div>
+        </div>
+        <div class="bg-dark/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6">
+          <div class="text-4xl md:text-5xl font-bold text-primary mb-2" id="seconds">00</div>
+          <div class="text-gray-400 font-light">Detik</div>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <a href="#daftar" 
+          class="bg-primary text-dark px-8 py-3 rounded-full text-lg font-medium inline-block hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/20">
+          Daftar Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateCountdown() {
+    // Set the target date (example: 30 days from now)
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 30);
+
+    const now = new Date().getTime();
+    const distance = targetDate.getTime() - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+  }
+
+  // Update countdown every second
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>

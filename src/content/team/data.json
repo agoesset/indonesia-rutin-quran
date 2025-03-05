@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "name": "Ustadz Ahmad Syafii",
+      "role": "Founder & Pembina IRQ",
+      "image": "https://placehold.co/400x400/png?text=AS"
+    },
+    {
+      "name": "Ustadzah Fatima",
+      "role": "Program Director",
+      "image": "https://placehold.co/400x400/png?text=FT"
+    },
+    {
+      "name": "Ustadz Ridwan",
+      "role": "Head of Mentoring",
+      "image": "https://placehold.co/400x400/png?text=RD"
+    },
+    {
+      "name": "Ustadzah Khadijah",
+      "role": "Community Manager",
+      "image": "https://placehold.co/400x400/png?text=KH"
+    }
+  ]
+}
